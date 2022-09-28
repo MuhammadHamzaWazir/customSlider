@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>custom slider</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+      }
+      .slider_main_row {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        padding: 60px 0px;
+      }
+      .sider_Div {
+        width: 100%;
+      }
+      .responsiveGallery-wrapper {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 25%;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        -o-perspective: 1000px;
+        -ms-perspective: 1000px;
+        perspective: 1000px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-shadow: none;
+        text-rendering: optimizeLegibility;
+      }
+      .responsivGallery-link {
+        display: block;
+        width: 100%;
+        box-shadow: 0 0 20px rgb(0 0 0 / 0%);
+      }
+
+      .responsiveGallery-wrapper {
+        min-height: 580px;
+      }
+      ul {
+        list-style: none;
+      }
+      .responsivGallery-pic {
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+      }
+      img {
+        vertical-align: middle;
+      }
+      .w-responsivGallery-info {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 5%;
+        text-align: center;
+        color: #fff;
+      }
+
+      .w-responsivGallery-info {
+        background: rgb(219, 219, 219);
+        background: -moz-linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        background: linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dbdbdb",endColorstr="#f2f2f2",GradientType=1);
+      }
+      .w-responsivGallery-info {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+        color: #fff;
+      }
+      .responsivGallery-name {
+        font-size: 18px;
+      }
+
+      .responsivGallery-name,
+      .responsivGallery-position {
+        color: #000;
+      }
+      .w-responsivGallery-info h3 {
+        padding-bottom: 10px;
+        color: #000;
+        font-size: 14px;
+        line-height: 26px;
+        font-weight: 400;
+        font-family: "Neo Sans W01";
+        text-transform: uppercase;
+      }
+      .responsivGallery-position {
+        padding-top: 4%;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+
+      .responsivGallery-name,
+      .responsivGallery-position {
+        color: #000;
+      }
+      .w-responsivGallery-info p {
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+        padding-bottom: 0;
+        width: 100%;
+      }
+
+      /* case studies */
+      .case-module {
+        background-color: #f2f2f2;
+        padding-bottom: 60px;
+        padding-top: 60px;
+      }
+      .case-module-intro h2 {
+        padding-top: 0px;
+        color: #000;
+        font-size: 40px;
+        text-align: center;
+        line-height: 55px;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+        padding-bottom: 25px;
+        text-transform: uppercase;
+      }
+      .case-module-intro p {
+        font-size: 14px;
+        line-height: 25px;
+        text-align: center;
+        color: #000;
+        font-family: "Poppins", sans-serif;
+        padding-bottom: 85px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .w-responsivGallery-info {
+        background: rgb(219, 219, 219);
+        background: -moz-linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        background: -webkit-linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        background: linear-gradient(
+          180deg,
+          rgba(219, 219, 219, 1) 0%,
+          rgba(242, 242, 242, 1) 100%
+        );
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dbdbdb",endColorstr="#f2f2f2",GradientType=1);
+      }
+      a.case-link {
+        color: #384249;
+        font-weight: 600;
+        padding: 20px;
+        display: inline-block;
+        padding-right: 50px;
+        background-image: url(../images/NR9sUKaqFJNN.png);
+        background-position: 96% center;
+        background-repeat: no-repeat;
+        font-size: 14px;
+      }
+      a.case-link:hover {
+        background-position: 98% center;
+      }
+      .responsiveGallery-container {
+        width: 100%;
+        position: relative;
+      }
+      .responsiveGallery-btn {
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        display: block;
+        width: 5%;
+        height: 100%;
+        min-width: 55px;
+      }
+      .responsiveGallery-btn_prev {
+        display: flex;
+        align-items: center;
+        left: 1%;
+      }
+      .responsiveGallery-btn_prev span {
+        font-size: 18px;
+        color: #d40000;
+      }
+      .responsiveGallery-btn_next {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        right: 1%;
+      }
+      .responsiveGallery-btn_next span {
+        font-size: 18px;
+        color: #d40000;
+      }
+      .responsiveGallery-btn_prev:hover,
+      .responsiveGallery-btn_next:focus {
+        color: transparent;
+        outline: none;
+      }
+      .responsiveGallery-wrapper {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 25%;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        -o-perspective: 1000px;
+        -ms-perspective: 1000px;
+        perspective: 1000px;
+      }
+      .responsiveGallery-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 0;
+        display: block;
+        width: 20%;
+        opacity: 0;
+        visibility: hidden;
+      }
+      @media (max-width: 1000px) {
+        .responsiveGallery-item {
+          width: 33.33%;
+        }
+        .responsiveGallery-wrapper {
+          padding-top: 45%;
+        }
+      }
+      @media (max-width: 560px) {
+        .responsiveGallery-wrapper {
+          width: 60%;
+        }
+        .responsiveGallery-item {
+          width: 100%;
+        }
+        .responsiveGallery-wrapper {
+          padding-top: 80%;
+        }
+        .responsiveGallery-btn {
+          width: 8%;
+        }
+      }
+      .responsivGallery-link {
+        display: block;
+        width: 100%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 20%);
+      }
+      .responsiveGallery-item .responsivGallery-link {
+        box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+      }
+      .responsiveGallery-item:hover .responsivGallery-link {
+        box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+      }
+      .w-responsivGallery-info {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 5%;
+        text-align: center;
+        color: #fff;
+      }
+      .responsivGallery-name {
+        font-size: 1.25em;
+      }
+      .responsivGallery-position {
+        padding-top: 4%;
+        font-size: 0.875em;
+        line-height: 1.3;
+      }
+      .responsivGallery-link {
+        padding-bottom: 35px;
+      }
+      .w-responsivGallery-info p {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        color: #384249;
+        padding-bottom: 0;
+        text-align: center;
+        width: 100%;
+        font-family: "Poppins", sans-serif;
+      }
+      .w-responsivGallery-info h3 {
+        padding-bottom: 10px;
+        color: #384249;
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: 400;
+        font-family: "Poppins", sans-serif;
+        text-transform: uppercase;
+      }
+      .w-responsivGallery-info {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+        color: #fff;
+      }
+      @media (max-width: 600px) {
+        .responsiveGallery-btn {
+          width: 8%;
+        }
+        .responsiveGallery-wrapper {
+          width: 60%;
+        }
+        .responsiveGallery-item {
+          width: 100%;
+        }
+        .slider_main_row {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          padding: 20px 0px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="case-module">
+      <div class="container">
+        <div class="row" style="justify-content: center">
+          <div class="col-md-3"></div>
+          <div class="col-md-6 text-center case-module-intro">
+            <h2>CASE STUDIES</h2>
+            <p class="text-center">
+              Don’t just take our word for it. Here’s what customers in a whole
+              range of sectors have to say about the work that we do.
+            </p>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row slider_main_row">
+          <div class="sider_Div">
+            <!-- slider start -->
+
+            <div class="w-gallery">
+              <section
+                id="responsiveGallery-container"
+                class="responsiveGallery-container"
+              >
+                <a
+                  class="responsiveGallery-btn responsiveGallery-btn_prev"
+                  href="javascript:void(0);"
+                  ><span>←</span></a
+                >
+                <a
+                  class="responsiveGallery-btn responsiveGallery-btn_next"
+                  href="javascript:void(0);"
+                  ><span>→</span></a
+                >
+                <ul class="responsiveGallery-wrapper">
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(0px) translateZ(-300px)
+                        rotateY(65deg);
+                      z-index: 0;
+                      opacity: 0.3;
+                      visibility: visible;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="638"
+                          height="630"
+                          src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="638"
+                            height="630"
+                            src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                            class="responsivGallery-pic"
+                            alt="Managed screening service in Ireland"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Managed screening service in Ireland
+                        </h3>
+                        <p class="responsivGallery-position">
+                          We deliver newborn hearing screening for the Health
+                          Service Executive
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(100%) translateZ(-200px)
+                        rotateY(45deg);
+                      z-index: 1;
+                      opacity: 0.5;
+                      visibility: visible;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a
+                      href="# nt-service-for-south-gloucestershire"
+                      class="responsivGallery-link"
+                    >
+                      <div class="case-bimage">
+                        <img
+                          width="1170"
+                          height="714"
+                          src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="1170"
+                            height="714"
+                            src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                            class="responsivGallery-pic"
+                            alt="TEST AND TRACE SUPPORT PAYMENT SERVICE"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          TEST AND TRACE SUPPORT PAYMENT SERVICE
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Helping South Gloucestershire to respond fast
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(200%) translateZ(0px) rotateY(0deg);
+                      z-index: 2;
+                      opacity: 1;
+                      visibility: visible;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a
+                      href="https://www.necsws.com/connect-custody-norfolk-constabulary/"
+                      class="responsivGallery-link"
+                    >
+                      <div class="case-bimage">
+                        <img
+                          width="2041"
+                          height="2093"
+                          src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="2041"
+                            height="2093"
+                            src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                            class="responsivGallery-pic"
+                            alt="How Connect is helping the custody team at Norfolk Constabulary make the right decisions "
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          How Connect is helping the custody
+                        </h3>
+                        <p class="responsivGallery-position">
+                          How Connect is helping the custody team at Norfolk
+                          Constabulary make the right decisions
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(300%) translateZ(-200px)
+                        rotateY(-45deg);
+                      z-index: 1;
+                      opacity: 0.5;
+                      visibility: visible;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="500"
+                          height="333"
+                          src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="500"
+                            height="333"
+                            src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                            class="responsivGallery-pic"
+                            alt="Introducing new tech in prisons"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Introducing new tech in prisons
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Helping HMP Forest Bank strengthen rehabilitation
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(400%) translateZ(-300px)
+                        rotateY(-65deg);
+                      z-index: 0;
+                      opacity: 0.3;
+                      visibility: visible;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a href="# outh-wales-police" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="377"
+                          height="308"
+                          src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt="South Wales Police - Smarter Recognition, Safer Community"
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="377"
+                            height="308"
+                            src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                            class="responsivGallery-pic"
+                            alt="South Wales Police - Smarter Recognition, Safer Community"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          South Wales Police - Smarter Recognition, Safer
+                          Community
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Facial recognition helps the force become smarter,
+                          creating a safer and connected community
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(500%) translateZ(-400px)
+                        rotateY(-85deg);
+                      z-index: -1;
+                      opacity: 0;
+                      visibility: hidden;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a href="# t-control-room" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="1366"
+                          height="911"
+                          src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt="Dubai International Airport and Cortex"
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="1366"
+                            height="911"
+                            src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                            class="responsivGallery-pic"
+                            alt="Dubai International Airport and Cortex"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Dubai International Airport and Cortex
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Enabling control room operators to manage all radio,
+                          telephone, intercom and web services
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="transition: all 0.4s ease-in-out 0s"
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="638"
+                          height="630"
+                          src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="638"
+                            height="630"
+                            src="https://www.necsws.com/wp-content/uploads/2020/06/newborn-baby-hearing-screening.jpg"
+                            class="responsivGallery-pic"
+                            alt="Managed screening service in Ireland"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Managed screening service in Ireland
+                        </h3>
+                        <p class="responsivGallery-position">
+                          We deliver newborn hearing screening for the Health
+                          Service Executive
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="transition: all 0.4s ease-in-out 0s"
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="1170"
+                          height="714"
+                          src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="1170"
+                            height="714"
+                            src="https://www.necsws.com/wp-content/uploads/2021/04/test-and-trace-support-payment-service.jpg"
+                            class="responsivGallery-pic"
+                            alt="TEST AND TRACE SUPPORT PAYMENT SERVICE"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          TEST AND TRACE SUPPORT PAYMENT SERVICE
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Helping South Gloucestershire to respond fast
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="transition: all 0.4s ease-in-out 0s"
+                  >
+                    <a
+                      href="https://www.necsws.com/connect-custody-norfolk-constabulary/"
+                      class="responsivGallery-link"
+                    >
+                      <div class="case-bimage">
+                        <img
+                          width="2041"
+                          height="2093"
+                          src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="2041"
+                            height="2093"
+                            src="https://www.necsws.com/wp-content/uploads/2021/10/NEC-and-Handsfree-collaboration-1.jpg"
+                            class="responsivGallery-pic"
+                            alt="How Connect is helping the custody team at Norfolk Constabulary make the right decisions "
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          How Connect is helping the custody team at Norfolk
+                          Constabulary make the right decisions
+                        </h3>
+                        <p class="responsivGallery-position">
+                          How Connect is helping the custody team at Norfolk
+                          Constabulary make the right decisions
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="transition: all 0.4s ease-in-out 0s"
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="500"
+                          height="333"
+                          src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="500"
+                            height="333"
+                            src="https://www.necsws.com/wp-content/uploads/2022/01/iStock-1048188852-v2.jpg"
+                            class="responsivGallery-pic"
+                            alt="Introducing new tech in prisons"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Introducing new tech in prisons
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Helping HMP Forest Bank strengthen rehabilitation
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="transition: all 0.4s ease-in-out 0s"
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="377"
+                          height="308"
+                          src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="377"
+                            height="308"
+                            src="https://www.necsws.com/wp-content/uploads/2021/02/Gallery-Images-05.jpg"
+                            class="responsivGallery-pic"
+                            alt="South Wales Police - Smarter Recognition, Safer Community"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          South Wales Police - Smarter Recognition, Safer
+                          Community
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Facial recognition helps the force become smarter,
+                          creating a safer and connected community
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li
+                    class="responsiveGallery-item"
+                    style="
+                      transform: translateX(-100%) translateZ(-400px)
+                        rotateY(85deg);
+                      z-index: -1;
+                      opacity: 0;
+                      visibility: hidden;
+                      transition: all 0.4s ease-in-out 0s;
+                    "
+                  >
+                    <a href="#" class="responsivGallery-link">
+                      <div class="case-bimage">
+                        <img
+                          width="1366"
+                          height="911"
+                          src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                          class="responsivGallery-pic entered lazyloaded"
+                          alt=""
+                          data-lazy-src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                          data-ll-status="loaded"
+                        /><noscript
+                          ><img
+                            width="1366"
+                            height="911"
+                            src="https://www.necsws.com/wp-content/uploads/2021/06/resize.jpg"
+                            class="responsivGallery-pic"
+                            alt="Dubai International Airport and Cortex"
+                        /></noscript>
+                      </div>
+                      <div class="w-responsivGallery-info">
+                        <h3 class="responsivGallery-name">
+                          Dubai International Airport and Cortex
+                        </h3>
+                        <p class="responsivGallery-position">
+                          Enabling control room operators to manage all radio,
+                          telephone, intercom and web services
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <div style="clear: both"></div>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function ($) {
+        $rgWrapper = $("#responsiveGallery-container");
+        $rgItems = $("#responsiveGallery-container li");
+        let rgItemsLength = $rgItems.length;
+        let animatDuration = 400;
+        var opts = {
+          $rgWrapper: this,
+          $rgItems: $("#responsiveGallery-container li"),
+          rgItemsLength: $rgItems.length,
+          rgCurrentIndex: 0,
+          rgShowCount: 5,
+          rgTansCSS: [],
+          animatDuration: 400,
+          isAnimating: !1,
+          touchX: 0,
+          animatDuration: 400,
+          $btn_prev: $(".responsiveGallery-btn_prev"),
+          $btn_next: $(".responsiveGallery-btn_next"),
+        };
+
+        function getTransform3dCSS(tx, ty, ry, zIndex, opacity, visibility) {
+          return {
+            "-webkit-transform":
+              "translateX(" +
+              tx +
+              ") translateZ(" +
+              ty +
+              "px) rotateY(" +
+              ry +
+              "deg)",
+            "-moz-transform":
+              "translateX(" +
+              tx +
+              ") translateZ(" +
+              ty +
+              "px) rotateY(" +
+              ry +
+              "deg)",
+            "-o-transform":
+              "translateX(" +
+              tx +
+              ") translateZ(" +
+              ty +
+              "px) rotateY(" +
+              ry +
+              "deg)",
+            "-ms-transform":
+              "translateX(" +
+              tx +
+              ") translateZ(" +
+              ty +
+              "px) rotateY(" +
+              ry +
+              "deg)",
+            transform:
+              "translateX(" +
+              tx +
+              ") translateZ(" +
+              ty +
+              "px) rotateY(" +
+              ry +
+              "deg)",
+            "z-index": zIndex,
+            opacity: opacity,
+            visibility: visibility,
+          };
+        }
+        function getTransform2dCSS(
+          t,
+          s,
+          r,
+          originX,
+          originY,
+          opacity,
+          visibility
+        ) {
+          return {
+            "-webkit-transform":
+              "translate(" + t + ") scale(" + s + ") rotatey(" + r + ")",
+            "-moz-transform":
+              "translate(" + t + ") scale(" + s + ") rotatey(" + r + ")",
+            "-o-transform":
+              "translate(" + t + ") scale(" + s + ") rotatey(" + r + ")",
+            "-ms-transform":
+              "translate(" + t + ") scale(" + s + ") rotatey(" + r + ")",
+            transform:
+              "translate(" + t + ") scale(" + s + ") rotatey(" + r + ")",
+            "-webkit-transform-origin": originX + " " + originY,
+            "-moz-transform-origin": originX + " " + originY,
+            "-ms-transform-origin": originX + " " + originY,
+            "-o-transform-origin": originX + " " + originY,
+            "transform-origin": originX + " " + originY,
+            opacity: opacity,
+            visibility: visibility,
+          };
+        }
+        function getTransitionCSS(time, ease) {
+          return {
+            "-webkit-transition": "all " + time + "s " + ease,
+            "-moz-transition": "all " + time + "s " + ease,
+            "-ms-transition": "all " + time + "s " + ease,
+            "-o-transition": "all " + time + "s " + ease,
+            transition: "all " + time + "s " + ease,
+          };
+        }
+        function getTransform7CSS() {
+          var cssArray;
+          cssArray = [
+            getTransform3dCSS("-100%", -400, 40, -1, 0, "hidden"),
+            getTransform3dCSS("0", -350, 45, -1, 1, "visible"),
+            getTransform3dCSS("100%", -300, 45, 0, 1, "visible"),
+            getTransform3dCSS("200%", -200, 40, 1, 1, "visible"),
+            getTransform3dCSS("300%", 0, 0, 2, 1, "visible"),
+            getTransform3dCSS("400%", -200, -40, 1, 1, "visible"),
+            getTransform3dCSS("500%", -300, -45, 0, 1, "visible"),
+            getTransform3dCSS("600%", -350, -45, -1, 1, "visible"),
+            getTransform3dCSS("700%", -400, -40, -1, 0, "hidden"),
+          ];
+          return cssArray;
+        }
+        function getTransform5CSS() {
+          var cssArray;
+          cssArray = [
+            getTransform3dCSS("-100%", -400, 85, -1, 0, "hidden"),
+            getTransform3dCSS("0", -300, 65, 0, 0.3, "visible"),
+            getTransform3dCSS("100%", -200, 45, 1, 0.5, "visible"),
+            getTransform3dCSS("200%", 0, 0, 2, 1, "visible"),
+            getTransform3dCSS("300%", -200, -45, 1, 0.5, "visible"),
+            getTransform3dCSS("400%", -300, -65, 0, 0.3, "visible"),
+            getTransform3dCSS("500%", -400, -85, -1, 0, "hidden"),
+          ];
+          return cssArray;
+        }
+        function getTransform3CSS() {
+          var cssArray;
+          cssArray = [
+            getTransform3dCSS("-100%", -400, 45, 0, 0, "hidden"),
+            getTransform3dCSS("0", -300, 45, 1, 1, "visible"),
+            getTransform3dCSS("100%", 0, 0, 2, 1, "visible"),
+            getTransform3dCSS("200%", -300, -45, 1, 1, "visible"),
+            getTransform3dCSS("300%", -400, -45, 0, 0, "hidden"),
+          ];
+          return cssArray;
+        }
+        function getTransform1CSS() {
+          var cssArray;
+          cssArray = [
+            getTransform3dCSS("-100%", -300, 45, 0, 0, "hidden"),
+            getTransform3dCSS("0%", 0, 0, 2, 1, "visible"),
+            getTransform3dCSS("100%", -300, -45, 0, 0, "hidden"),
+          ];
+          return cssArray;
+        }
+        function setSectionItems(fun) {
+          var $items = [];
+          $items[0] = $rgItems.eq(rgCurrentIndex - 1);
+          fun(0, $items[0]);
+          for (var i = 1; i <= rgShowCount + 1; i++) {
+            var next = rgCurrentIndex + i - 1;
+            if (next >= rgItemsLength) {
+              next = next - rgItemsLength;
+            }
+            $items[i] = $rgItems.eq(next);
+            fun(i, $items[i]);
+          }
+        }
+        function moveGallery(direction) {
+          isAnimating = !0;
+          rgCurrentIndex = direction + rgCurrentIndex;
+          if (rgCurrentIndex < 0) {
+            rgCurrentIndex = rgItemsLength - 1;
+          }
+          if (rgCurrentIndex >= rgItemsLength) {
+            rgCurrentIndex = 0;
+          }
+          setSectionItems(function (i, $item) {
+            $item.css(rgTansCSS[i]);
+          });
+          setTimeout(function () {
+            isAnimating = !1;
+          }, animatDuration);
+        }
+        opts.$btn_next.on("click", function (e) {
+          !isAnimating && moveGallery(+1);
+        });
+        opts.$btn_prev.on("click", function (e) {
+          !isAnimating && moveGallery(-1);
+        });
+        $rgWrapper
+          .on("touchstart", function (e) {
+            var touch = e.originalEvent.touches[0];
+            touchX = touch.pageX;
+          })
+          .on("touchend touchcancel", function (e) {
+            var touch =
+                e.originalEvent.touches[0] || e.originalEvent.changedTouches[0],
+              touchGap = touch.pageX - touchX;
+            if (touchGap > 5) {
+              opts.$btn_prev.trigger("click");
+            }
+            if (touchGap < -5) {
+              opts.$btn_next.trigger("click");
+            }
+          });
+        $(window)
+          .on("resize", function (e) {
+            $rgItems.removeAttr("style");
+            var wrapperWidth = $rgWrapper.width(),
+              itemWidth = $rgItems.eq(0).width();
+            console.log(wrapperWidth, itemWidth);
+            rgShowCount = Math.floor(wrapperWidth / itemWidth);
+            //rgShowCount = Math.round(wrapperWidth / itemWidth);
+            console.log(rgShowCount);
+            if (rgShowCount === 1) {
+              rgTansCSS = getTransform1CSS();
+            } else if (rgShowCount === 3) {
+              rgTansCSS = getTransform3CSS();
+            } else if (rgShowCount === 5) {
+              rgTansCSS = getTransform5CSS();
+            } else if (rgShowCount === 7) {
+              rgTansCSS = getTransform7CSS();
+            } else {
+              return;
+            }
+            rgCurrentIndex = 0;
+            moveGallery(0);
+            setTimeout(function () {
+              $rgItems.css(
+                getTransitionCSS(animatDuration / 1e3, "ease-in-out")
+              );
+            }, 10);
+          })
+          .trigger("resize");
+      })(jQuery);
+    </script>
+  </body>
+</html>
